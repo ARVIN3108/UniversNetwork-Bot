@@ -4,6 +4,7 @@ const Token = process.env.Token
 const Prefix = process.env.Prefix
 
 const fs = require('fs')
+const ms = require('ms')
 client.commands = new Discord.Collection
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
 for (const file of commandFiles) {
@@ -35,7 +36,7 @@ client.on('message', message => {
 
     if (command === 'ip') {
         client.commands.get('ip').execute(message, args)
-    } else if (command === 'version') {
+    } else if (command === 'version' || command === 'ver') {
         client.commands.get('version').execute(message, args)
     } else if (command === 'kick') {
         client.commands.get('kick').execute(message, args)
@@ -47,10 +48,16 @@ client.on('message', message => {
         client.commands.get('mute').execute(message, args)
     } else if (command === 'unmute') {
         client.commands.get('unmute').execute(message, args)
-    } else if (command === 'play') {
+    } else if (command === 'play' || command === 'p') {
         client.commands.get('play').execute(message, args)
-    } else if (command === 'leave') {
+    } else if (command === 'leave' || command === 'disconnect' || command === 'dc') {
         client.commands.get('leave').execute(message, args)
+    } else if (command === 'help' || command === '?') {
+        client.commands.get('help').execute(message, args)
+    } else if (command === 'vote') {
+        client.commands.get('vote').execute(message, args)
+    } else if (command === 'join') {
+        client.commands.get('join').execute(message, args)
     }
 })
 

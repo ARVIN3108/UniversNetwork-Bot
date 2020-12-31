@@ -6,6 +6,6 @@ module.exports = {
 
         if (!voiceChannel) return message.delete().then(message.channel.send("**Kamu perlu berada di voice channel sebelum menghentikan lagu!**"));
         await voiceChannel.leave();
-        await message.delete().then(message.channel.send('**Meninggalkan voice channel** :no_entry:'))
+        await message.delete().then(message.channel.send(':no_entry: **Meninggalkan voice channel "**' + voiceChannel.name + '**"**'))
     }
 }

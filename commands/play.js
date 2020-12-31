@@ -29,7 +29,7 @@ module.exports = {
 
             connection.play(stream, { seek: 0, volume: 1 })
 
-            await message.delete().then(message.channel.send(`**:arrow_forward: Sedang memainkan *${video.title}***`))
+            await message.delete().then(message.channel.send(`**:arrow_forward: Sedang memainkan *${video.title}* di voice channel "**${voiceChannel.name}**"**`))
 
             return
         }
@@ -51,7 +51,7 @@ module.exports = {
             connection.play(stream, { seek: 0, volume: 1 })
 
 
-            await message.delete().then(message.channel.send(`**:arrow_forward: Sedang memainkan *${video.title}***`))
+            await message.delete().then(message.channel.send(`**:arrow_forward: Sedang memainkan *${video.title}* di voice channel "**${voiceChannel.name}**"**`))
         } else {
             message.delete().then(message.channel.send(':x: **Tidak dapat menemukan lagu!**'));
         }
