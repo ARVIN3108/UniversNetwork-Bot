@@ -3,7 +3,9 @@ const client = new Discord.Client()
 const Canvas = require('canvas')
 const { MessageAttachment, MessageEmbed, GuildChannel } = require('discord.js')
 const path = require('path')
-const { Token, Prefix, Version } = require('./config.json')
+const Token = process.env.Token
+const Prefix = process.env.Prefix
+const Version = process.env.Version
 
 client.on('guildMemberAdd', async (member) => {
     const { guild } = member
