@@ -1,0 +1,5 @@
+{
+    "Token": "process.env.Token",
+    "Version": "process.env.Version",
+    "Prefix": "process.env.Prefix"
+}
