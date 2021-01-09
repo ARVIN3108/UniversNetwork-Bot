@@ -1,6 +1,6 @@
 # UniversNetwork Bot (Beta)
-# Member Commands
-- .help | .? - To View Command List
+#Member Commands
+- ".help" | .? - To View Command List
 - .ip - To See The IP Of This Server
 - .play | .p - To Play Songs (Just Like Most Music Bots)
 - .join | .connect | .summon - To Make Bots Enter The Voice Channel (Just Like Most Music Bots)
