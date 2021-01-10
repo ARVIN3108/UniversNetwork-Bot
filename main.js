@@ -69,7 +69,7 @@ client.once('ready', () => {
             'Dibuat Oleh ARVIN3108 ID',
             'IP: play.universnetwork.xyz',
             'Selamat Tahun Baru 2021! Dari UniversNetwork!',
-            'Cave Block On Progress'
+            'Cave Block Released'
         ]
         const status = statuses[Math.floor(Math.random() * statuses.length)]
         client.user.setActivity(status)
