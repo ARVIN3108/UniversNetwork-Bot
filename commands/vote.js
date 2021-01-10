@@ -7,7 +7,7 @@ module.exports = {
             .setColor('#15FF02')
             .setTitle('**Prefix:** `.`')
             .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
-            .setImage('https://minecraft-mp.com/images/banners/banner-272254-1607034896.gif')
+            .setImage('https://cdn.discordapp.com/attachments/761872007116750852/784062571535794196/standard.gif')
             .addField('\u200B', '\u200B', true)
             .addField('List Of Vote Link', '\u200B', true)
             .addField('\u200B', '\u200B', true)
