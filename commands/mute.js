@@ -6,7 +6,7 @@ module.exports = {
         if (message.member.roles.cache.has('794402919897366539')) {
             const target = message.mentions.users.first()
             if (target) {
-                let mainRole = message.guild.roles.cache.find(role => role.id === '793697695294291968')
+                let mainRole = message.guild.roles.cache.find(role => role.id === '799473003443781704')
                 let muteRole = message.guild.roles.cache.find(role => role.id === '765808025289490452')
                 let memberTarget = message.guild.members.cache.get(target.id)
 
