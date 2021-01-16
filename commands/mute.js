@@ -29,7 +29,7 @@ module.exports = {
                 message.delete().then(message.channel.send('**Member tidak dapat ditemukan!**'))
             }
         } else {
-            message.delete().then(message.channel.send('**Kamu tidak punya izin untuk meng-mute member!**'))
+            message.delete().then(message.channel.send('**Kamu tidak punya izin untuk mengemute member!**'))
         }
     }
 }
