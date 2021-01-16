@@ -4,7 +4,7 @@
 //     client = new Discord.Client(),
 //     config = {
 //         prefix: ".",
-//         token: process.env.Token
+//         token: "TOKEN"
 //     };
 
 // // Create a new DisTube
@@ -77,15 +77,16 @@
 //     });
 
 // client.login(config.token);
-const Discord = require('discord.js')
-const client = new Discord.Client()
-// const Canvas = require('canvas')
-const { MessageAttachment, MessageEmbed, GuildChannel } = require('discord.js')
-const path = require('path')
-const DisTube = require('distube')
-const Token = process.env.Token
-const Prefix = process.env.Prefix
-const Version = process.env.Version
+const Discord = require('discord.js'),
+    client = new Discord.Client(),
+    // const Canvas = require('canvas')
+    { MessageAttachment, MessageEmbed, GuildChannel } = require('discord.js'),
+    path = require('path'),
+    DisTube = require('distube'),
+    // { Token, Prefix, Version } = require('./config.json')
+    Token = process.env.Token,
+    Prefix = process.env.Prefix,
+    Version = process.env.Version
 
 // client.on('guildMemberAdd', async (member) => {
 //     const { guild } = member
@@ -129,8 +130,8 @@ const Version = process.env.Version
 //     client.channels.cache.get(channel).send('', attachment)
 // })
 function loadCMD() {
-    const fs = require('fs')
-    const ms = require('ms')
+    const fs = require('fs'),
+        ms = require('ms')
     client.commands = new Discord.Collection
     const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
     for (const file of commandFiles) {
@@ -171,9 +172,9 @@ client.on('message', msg => {
 
 client.on('message', message => {
     if (!message.content.startsWith(Prefix) || message.author.bot) return
-    const args = message.content.slice(Prefix.length).split(/ +/)
-    const command = args.shift().toLowerCase()
-    const getChannel = client.channels.cache.get(message.channel.id)
+    const args = message.content.slice(Prefix.length).split(/ +/),
+        command = args.shift().toLowerCase(),
+        getChannel = client.channels.cache.get(message.channel.id)
 
     if (command === 'ip') {
         client.commands.get('ip').execute(message, args)
@@ -215,7 +216,7 @@ client.on('message', message => {
     } else if (command === 'vote') {
         client.commands.get('vote').execute(message, MessageEmbed)
     } else if (command === 'join' || command === 'summon' || command === 'connect') {
-        client.commands.get('join').execute(message, MessageEmbed, client)
+        client.commands.get('join').execute(message, MessageEmbed)
     } else if (command === 'verification' || command === 'verify') {
         client.commands.get('verification').execute(message, MessageEmbed, client)
     } else if (command === 'reload' || command === 'load') {
@@ -225,29 +226,29 @@ client.on('message', message => {
     }
 })
 const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true })
-const status = (queue) => `**Volume:** \`${queue.volume}%\` **| Repeat:** \`${queue.repeatMode ? queue.repeatMode == 2 ? "Semua Lagu" : "Hanya Lagu Ini" : "Mati"}\`\n**| Acak Lagu:** \`${queue.shuffle ? "Hidup" : "Mati"}\` **| Autoplay:** \`${queue.autoplay ? "Hidup" : "Mati"}\``
+const status = (queue) => `**Volume:** \`${queue.volume}%\` **| Repeat:** \`${queue.repeatMode ? queue.repeatMode == 2 ? "Semua Lagu" : "Hanya Lagu Ini" : "Mati"}\`\n**Acak Lagu:** \`${queue.shuffle ? "Hidup" : "Mati"}\` **| Autoplay:** \`${queue.autoplay ? "Hidup" : "Mati"}\``
 
 distube
     .on("playSong", (message, queue, song) => {
         // message.channel.send(
         //     `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`
         // )
-        const voiceChannel = message.member.voice.channel
-        const embed = new MessageEmbed()
-            .setColor('#02C2FF')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
-            .setTitle('**Prefix:** `.`')
-            .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
-            .addField('\u200B', '\u200B', true)
-            .addField('**Song Player**', '\u200B', true)
-            .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
-            .addField(':arrow_forward: Sedang Memutar Lagu', song.name)
-            .addField(':stopwatch: Durasi', song.formattedDuration)
-            .addField(':movie_camera: Link Video', song.url)
-            .addField(':information_source: Status', status(queue))
-            .setImage(song.thumbnail)
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+        const voiceChannel = message.member.voice.channel,
+            embed = new MessageEmbed()
+                .setColor('#02C2FF')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setTitle('**Prefix:** `.`')
+                .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
+                .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+                .addField('\u200B', '\u200B', true)
+                .addField('**Song Player**', '\u200B', true)
+                .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
+                .addField(':arrow_forward: Sedang Memutar Lagu', song.name)
+                .addField(':stopwatch: Durasi', song.formattedDuration)
+                .addField(':movie_camera: Link Video', song.url)
+                .addField(':information_source: Status', status(queue))
+                .setImage(song.thumbnail)
+                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
         message.channel.send(embed)
     })
     .on("addSong", (message, queue, song) => {
@@ -270,20 +271,20 @@ distube
     .on("playList", (message, queue, playlist, song) => {
         // message.channel.send(
         //     `Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`)
-        const voiceChannel = message.member.voice.channel
-        const embedlist = new MessageEmbed()
-            .setColor('#FBFF00')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
-            .setTitle('**Prefix:** `.`')
-            .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
-            .addField('\u200B', '\u200B', true)
-            .addField('**Song Player**', '\u200B', true)
-            .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
-            .addField(':arrow_forward: Sedang Memutar Daftar Lagu', playlist.name)
-            .addField(':1234: Jumlah Lagu', playlist.songs.length)
-            .addField(':stopwatch: Total Durasi', playlist.formattedDuration)
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+        const voiceChannel = message.member.voice.channel,
+            embedlist = new MessageEmbed()
+                .setColor('#FBFF00')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setTitle('**Prefix:** `.`')
+                .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
+                .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+                .addField('\u200B', '\u200B', true)
+                .addField('**Song Player**', '\u200B', true)
+                .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
+                .addField(':arrow_forward: Sedang Memutar Daftar Lagu', playlist.name)
+                .addField(':1234: Jumlah Lagu', playlist.songs.length)
+                .addField(':stopwatch: Total Durasi', playlist.formattedDuration)
+                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
         message.channel.send(embedlist)
 
         const embed = new MessageEmbed()
@@ -322,13 +323,26 @@ distube
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
         let i = 0;
-        message.channel.send(`**Pilih Salah Satu Lagu Dibawah Ini**\n*Ketik Salah Satu Angka Untuk Memilih*\n\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n\n")}\n\n*Ketik Huruf Apapun Atau Tunggu 1 Menit Untuk Membatalkan*`);
+        message.channel.send(`**Pilih Salah Satu Lagu Dibawah Ini**\n*Ketik Salah Satu Angka Untuk Memilih*\n\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n\n")}\n\n*Ketik Huruf Apapun Atau Tunggu 1 Menit Untuk Membatalkan*\n\n**Diminta Oleh** @${message.author.tag}`);
     })
     // DisTubeOptions.searchSongs = true
     .on("searchCancel", (message) => message.channel.send(':x: **Pencarian Dibatalkan**'))
     .on("error", (message, e) => {
         console.error(e)
         message.channel.send("An error encountered: " + e);
-    });
+    })
+    .on('empty', async message => {
+        const embed = new MessageEmbed()
+            .setColor('#FF0000')
+            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+            .setTitle('**Prefix:** `.`')
+            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+            .addField('\u200B', '\u200B', true)
+            .addField('Song Player', '\u200B', true)
+            .addField('\u200B', '\u200B', true)
+            .addField(':no_entry: **Meninggalkan Voice Channel**', voiceChannel.name)
+            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+        await message.channel.send(embed)
+    })
 
 client.login(Token)
