@@ -7,7 +7,7 @@ module.exports = {
         if(queue) {
             distube.skip(message)
     
-            message.channel.send(':track_next: **Melewati Lagu!**')
+            message.delete().then(message.channel.send(':track_next: **Melewati Lagu!**'))
         } else if (!queue) {
             message.delete().then(message.channel.send(':x: **Kamu tidak sedang memutar lagu!**'))
         }
