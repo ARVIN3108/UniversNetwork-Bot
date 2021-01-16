@@ -45,7 +45,7 @@ module.exports = {
             .addField('`.unmute`', 'Untuk meng-unmute member')
             .addField('`.playskip` `.ps`', 'Untuk memutar dan melewati lagu secara bersamaan')
             .addField('`.clear`', 'Untuk menghapus pesan dengan cepat')
-            .addField('`.verification` `.verify`', 'Untuk meng-set channel verifikasi (mirip dengan carl bot)\n\u200B\n\u200B')
+            .addField('`.verification` `.verify`', 'Untuk meng-set channel verifikasi (mirip dengan carl bot)')
             .addField('Check The Wiki For English Version', 'https://github.com/ARVIN3108/UniversNetwork/blob/main/README.md')
             .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
         message.delete().then(message.channel.send(embed))
