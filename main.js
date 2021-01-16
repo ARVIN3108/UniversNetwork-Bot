@@ -4,7 +4,7 @@
 //     client = new Discord.Client(),
 //     config = {
 //         prefix: ".",
-//         token: "NzkyOTk0MTY5NjU5OTgxODQ2.X-lzXw.T0pw0ilc8nB4IBD4wRxN--DJuMY"
+//         token: process.env.Token
 //     };
 
 // // Create a new DisTube
