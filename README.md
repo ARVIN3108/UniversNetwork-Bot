@@ -19,5 +19,6 @@
 - `.ban` - To Ban Members
 - `.mute` - To Mute A Member On A Timed Or Permanent Basis
 - `.unmute` - To Unmute The Members
+- `.playskip` | `.ps` - To Play And Skip Songs Simultaneously
 - `.clear` - To Delete Messages Quickly
 - `.verification` | `.verify` - To Set Up The Verification Channel *(Similar To Carl Bot)*
