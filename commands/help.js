@@ -29,6 +29,7 @@ module.exports = {
             .addField('`.play` `.p`', 'Untuk memutar lagu *(sama seperti bot musik pada umumnya)*')
             .addField('`.loop` `.repeat`', 'Untuk mengaktifkan atau menonaktifkan mode repeat lagu *(sama seperti bot musik pada umumnya)*')
             .addField('`.shuffle` `.random` `.rm`', 'Untuk mengaktifkan atau menonaktifkan mode acak lagu *(sama seperti bot musik pada umumnya)*')
+            .addField('`.autoplay` `.ap`', 'Untuk mengaktifkan atau menonaktifkan mode putar lagu otomatis')
             .addField('`.skip` `.s`', 'Untuk melewati lagu yang sedang diputar *(sama seperti bot musik pada umumnya)*')
             .addField('`.queue` `.q`', 'Untuk melihat daftar lagu yang sedang diputar *(sama seperti bot musik pada umumnya)*')
             .addField('`.join` `.connect` `.summon`', 'Untuk membuat bot masuk ke voice channel *(sama seperti bot musik pada umumnya)*')
