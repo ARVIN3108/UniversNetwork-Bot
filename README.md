@@ -6,6 +6,7 @@
 - `.play` | `.p` - To Play Songs *(Just Like Most Music Bots)*
 - `.loop` | `.repeat` - To Activate Or Deactivate Song Repeat Mode *(Just Like Most Music Bots)*
 - `.shuffle` | `.random` | `.rm` - To Activate Or Deactivate Song Shuffle Mode *(Just Like Most Music Bots)*
+- `.autoplay` | `.ap` - To Activate Or Deactivate Automatic Song Play Mode
 - `.skip` | `.s` - To Skip The Currently Playing Song *(Just Like Most Music Bots)*
 - `.queue` | `.q` - To See The List Of Songs Currently Playing *(Just Like Most Music Bots)*
 - `.join` | `.connect` | `.summon` - To Make Bots Enter The Voice Channel *(Just Like Most Music Bots)*
