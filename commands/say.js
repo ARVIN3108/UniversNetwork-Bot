@@ -2,10 +2,9 @@ module.exports = {
     name: 'say',
     description: 'To say the message',
     execute(message, args) {
-        if (message.author.id === '700166055326384179') {
+        if (!message.member.roles.cache.has('800297876080033813')) return message.delete().then(message.channel.send(':x: **Kamu Tidak Punya Izin Untuk Mengirim Pesan Sebagai Bot!**'))
             const text = args.join(' ')
             if (!text) return message.delete().then(message.channel.send('**Salah ketik! Seharusnya: *.say <teks>***'))
             message.delete().then(message.channel.send(text))
-        } else return
     }
 }
