@@ -83,10 +83,10 @@ const Discord = require('discord.js'),
     { MessageAttachment, MessageEmbed, GuildChannel } = require('discord.js'),
     path = require('path'),
     DisTube = require('distube'),
-    { Token, Prefix, Version } = require('./config.json')
-    // Token = process.env.Token,
-    // Prefix = process.env.Prefix,
-    // Version = process.env.Version
+    // { Token, Prefix, Version } = require('./config.json')
+    Token = process.env.Token,
+    Prefix = process.env.Prefix,
+    Version = process.env.Version
 
 // client.on('guildMemberAdd', async (member) => {
 //     const { guild } = member
