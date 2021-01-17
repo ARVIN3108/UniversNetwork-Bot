@@ -1,4 +1,4 @@
-// // DisTube example bot, definitions, properties and events details in the Documentation page.
+// DisTube example bot, definitions, properties and events details in the Documentation page.
 // const Discord = require('discord.js'),
 //     DisTube = require('distube'),
 //     client = new Discord.Client(),
@@ -162,9 +162,7 @@ client.on('message', msg => {
     if (msg.content === "Halo?" || msg.content === "halo?" || msg.content === "halo" || msg.content === "Halo") {
         msg.reply('Hai')
     }
-})
 
-client.on('message', msg => {
     if (msg.content === "Hello?" || msg.content === "hello?" || msg.content === "hello" || msg.content === "Hello") {
         msg.reply('Hi!')
     }
