@@ -13,6 +13,7 @@ module.exports = {
             .addField('\u200B', '\u200B', true)
             .addField('`.reload` `.load`', 'Untuk me-reload semua command')
             .addField('`.volume` `.vol`', 'Untuk merubah volume suara bot saat memutar lagu')
+            .addField('`.say`', 'Untuk berbicara sebagai bot')
             .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
             message.author.send(embed)
         }
