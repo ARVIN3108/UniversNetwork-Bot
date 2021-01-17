@@ -20,5 +20,7 @@
 - `.mute` - To Mute A Member On A Timed Or Permanent Basis
 - `.unmute` - To Unmute The Members
 - `.playskip` | `.ps` - To Play And Skip Songs Simultaneously
+- `.volume` | `.vol` - To Change The Volume Of The Bot Sound When Playing A Song
+- `.say` - To Send Messages As A Bot
 - `.clear` - To Delete Messages Quickly
 - `.verification` | `.verify` - To Set Up The Verification Channel *(Similar To Carl Bot)*
