@@ -83,10 +83,10 @@ const Discord = require('discord.js'),
     { MessageAttachment, MessageEmbed, GuildChannel } = require('discord.js'),
     path = require('path'),
     DisTube = require('distube'),
-    // { Token, Prefix, Version } = require('./config.json')
-    Token = process.env.Token,
-    Prefix = process.env.Prefix,
-    Version = process.env.Version
+    { Token, Prefix, Version } = require('./config.json')
+    // Token = process.env.Token,
+    // Prefix = process.env.Prefix,
+    // Version = process.env.Version
 
 // client.on('guildMemberAdd', async (member) => {
 //     const { guild } = member
@@ -160,7 +160,7 @@ client.once('ready', () => {
 
 client.on('message', msg => {
     if (msg.content === "Halo?" || msg.content === "halo?" || msg.content === "halo" || msg.content === "Halo") {
-        msg.reply('Hai')
+        msg.reply('Hai!')
     }
 
     if (msg.content === "Hello?" || msg.content === "hello?" || msg.content === "hello" || msg.content === "Hello") {
