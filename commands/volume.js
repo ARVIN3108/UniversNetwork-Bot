@@ -10,9 +10,9 @@ module.exports = {
             if (isNaN(args[0])) return message.delete().then(message.channel.send('**Mohon masukkan angka yang benar!**'))
             if (args[0] < 1) return message.delete().then(message.channel.send('**Kamu tidak bisa mengubah volume suara dibawah 1!**'))
             distube.setVolume(message, args[0])
-            message.delete().then(message.channel.send(':loud_sound: **Mengubah Volume Suara Menjadi** `' + args[0] + '`'))
+            message.delete().then(message.channel.send(':loud_sound: **Mengubah Volume Suara Menjadi** `' + args[0] + '%`'))
         } else if (!queue) {
-            message.delete().then(message.channel.send(':x: **Kamu tidak sedang memutar lagu!**'))
+            message.delete().then(message.channel.send(':x: **Bot tidak sedang memutar lagu!**'))
         }
     }
 }

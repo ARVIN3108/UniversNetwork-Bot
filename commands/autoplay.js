@@ -7,7 +7,7 @@ module.exports = {
             let mode = distube.toggleAutoplay(message);
             message.delete().then(message.channel.send(":track_next: **Mode AutoPlay " + (mode ? "Dihidupkan!" : "Dimatikan!") + '**'))
         } else if (!queue) {
-            message.delete().then(message.channel.send(':x: **Kamu tidak sedang memutar lagu!**'))
+            message.delete().then(message.channel.send(':x: **Bot tidak sedang memutar lagu!**'))
         }
     }
 }

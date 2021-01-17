@@ -4,9 +4,9 @@ module.exports = {
     async execute(message, MessageEmbed, client) {
         const channel = message.channel.id
         if (message.member.hasPermission('MANAGE_ROLES')) {
-            const verificationRole = message.guild.roles.cache.find(role => role.id === "761876904465661962")
-            const unmuteRole = message.guild.roles.cache.find(role => role.id === "799473003443781704")
-            const verificationEmoji = '✅';
+            const verificationRole = message.guild.roles.cache.find(role => role.id === "761876904465661962"),
+                unmuteRole = message.guild.roles.cache.find(role => role.id === "799473003443781704"),
+                verificationEmoji = '✅'
 
             let embed = new MessageEmbed()
                 .setColor('#F3FF00')
@@ -16,9 +16,9 @@ module.exports = {
                 .addField(':flag_um:', 'Click Emoji :white_check_mark: For Verification')
                 .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
 
-            
-                let messageEmbed = await message.channel.send(embed)
-                message.delete().then(messageEmbed.react(verificationEmoji))
+
+            let messageEmbed = await message.channel.send(embed)
+            message.delete().then(messageEmbed.react(verificationEmoji))
 
             client.on('messageReactionAdd', async (reaction, user) => {
                 if (reaction.message.partial) await reaction.message.fetch();

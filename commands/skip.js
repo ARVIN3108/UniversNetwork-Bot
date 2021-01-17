@@ -9,7 +9,7 @@ module.exports = {
     
             message.delete().then(message.channel.send(':track_next: **Melewati Lagu!**'))
         } else if (!queue) {
-            message.delete().then(message.channel.send(':x: **Kamu tidak sedang memutar lagu!**'))
+            message.delete().then(message.channel.send(':x: **Bot tidak sedang memutar lagu!**'))
         }
 
     }
