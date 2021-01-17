@@ -223,6 +223,8 @@ client.on('message', message => {
         client.commands.get('reload').execute(message, loadCMD)
     } else if (command === 'info') {
         client.commands.get('info').execute(message, args, MessageEmbed, Version)
+    } else if (command === 'say') {
+        client.commands.get('say').execute(message, args)
     }
 })
 const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true })
