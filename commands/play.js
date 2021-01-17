@@ -5,8 +5,9 @@ module.exports = {
     description: 'Joins and plays a video from youtube',
     execute(message, args, distube) {
         const voiceChannel = message.member.voice.channel
-        if (!voiceChannel) return message.delete().then(message.channel.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**'))
         const music = args.join(" ")
+        if (!music) return message.delete().then(message.channel.send(':exclamation: **Kamu perlu menyertakan nama atau link video!**'))
+        if (!voiceChannel) return message.delete().then(message.channel.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**'))
         distube.play(message, music)
         message.delete().then(message.channel.send(':mag_right: **Mencari** `' + music + '`'))
         
