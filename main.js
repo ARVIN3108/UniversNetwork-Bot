@@ -246,7 +246,6 @@ client.on('message', message => {
         client.commands.get('say').execute(message, args)
     }
 })
-clieny
 const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true })
 const status = (queue) => `**Volume:** \`${queue.volume}%\` **| Repeat:** \`${queue.repeatMode ? queue.repeatMode == 2 ? "Semua Lagu" : "Hanya Lagu Ini" : "Mati"}\`\n**Acak Lagu:** \`${queue.shuffle ? "Hidup" : "Mati"}\` **| Autoplay:** \`${queue.autoplay ? "Hidup" : "Mati"}\``
 
