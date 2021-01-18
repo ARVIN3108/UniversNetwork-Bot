@@ -39,7 +39,7 @@ module.exports = {
 
         const embeds = new MessageEmbed()
             .setColor('#02C2FF')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setTitle('**Prefix:** `.`')
             .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
             .addField('\u200B', '\u200B', true)
