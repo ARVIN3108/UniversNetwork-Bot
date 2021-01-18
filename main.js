@@ -120,7 +120,7 @@ const Discord = require('discord.js'),
 //     x = canvas.width / 2 - ctx.measureText(text).width / 2
 //     ctx.fillText(text, x, 60 + pfp.height)
 
-//     // Display member count
+// // Display member count
 //     ctx.font = '30px sans-serif'
 //     text = `Member #${guild.memberCount}`
 //     x = canvas.width / 2 - ctx.measureText(text).width / 2
@@ -168,8 +168,29 @@ client.on('message', msg => {
     }
 })
 
+client.on('messageReactionAdd', async (reaction, user) => {
+    const channel = '761874840915148840',
+        verificationEmoji = '✅',
+        verificationRole = reaction.message.guild.roles.cache.find(role => role.id === "761876904465661962"),
+        unmuteRole = reaction.message.guild.roles.cache.find(role => role.id === "799473003443781704")
+
+    if (reaction.message.partial) await reaction.message.fetch()
+    if (reaction.partial) await reaction.fetch()
+    if (user.bot) return
+    if (!reaction.message.guild) return
+
+    if (reaction.message.channel.id == channel) {
+        if (reaction.emoji.name === verificationEmoji) {
+            await reaction.message.guild.members.cache.get(user.id).roles.add(verificationRole)
+            await reaction.message.guild.members.cache.get(user.id).roles.add(unmuteRole)
+        }
+    } else {
+        return
+    }
+})
+
 client.on('message', message => {
-    if (!message.content.startsWith(Prefix) || message.author.bot) return
+    if (!message.content.startsWith(Prefix) || message.author.bot || message.author.dmChannel) return
     const args = message.content.slice(Prefix.length).split(/ +/),
         command = args.shift().toLowerCase(),
         getChannel = client.channels.cache.get(message.channel.id)
@@ -225,6 +246,7 @@ client.on('message', message => {
         client.commands.get('say').execute(message, args)
     }
 })
+clieny
 const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true })
 const status = (queue) => `**Volume:** \`${queue.volume}%\` **| Repeat:** \`${queue.repeatMode ? queue.repeatMode == 2 ? "Semua Lagu" : "Hanya Lagu Ini" : "Mati"}\`\n**Acak Lagu:** \`${queue.shuffle ? "Hidup" : "Mati"}\` **| Autoplay:** \`${queue.autoplay ? "Hidup" : "Mati"}\``
 
@@ -236,10 +258,10 @@ distube
         const voiceChannel = message.member.voice.channel,
             embed = new MessageEmbed()
                 .setColor('#02C2FF')
-                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `.`')
                 .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-                .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+                .setDescription(':clipboard: **Diminta Oleh** <@' + song.user + '>\n\u200B\n\u200B')
                 .addField('\u200B', '\u200B', true)
                 .addField('**Song Player**', '\u200B', true)
                 .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
@@ -256,10 +278,10 @@ distube
         // `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)
         const embed = new MessageEmbed()
             .setColor('#15FF02')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setTitle('**Prefix:** `.`')
             .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+            .setDescription(':clipboard: **Diminta Oleh** <@' + song.user + '>\n\u200B\n\u200B')
             .addField('\u200B', '\u200B', true)
             .addField('**Song Player**', '\u200B', true)
             .addField(':track_next: Menambahkan Lagu', song.name)
@@ -274,10 +296,10 @@ distube
         const voiceChannel = message.member.voice.channel,
             embedlist = new MessageEmbed()
                 .setColor('#FBFF00')
-                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `.`')
                 .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-                .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+                .setDescription(':clipboard: **Diminta Oleh** <@' + playlist.user + '>\n\u200B\n\u200B')
                 .addField('\u200B', '\u200B', true)
                 .addField('**Song Player**', '\u200B', true)
                 .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
@@ -289,10 +311,10 @@ distube
 
         const embed = new MessageEmbed()
             .setColor('#02C2FF')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setTitle('**Prefix:** `.`')
             .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+            .setDescription(':clipboard: **Diminta Oleh** <@' + song.user + '>\n\u200B\n\u200B')
             .addField('\u200B', '\u200B', true)
             .addField('**Song Player**', '\u200B', true)
             .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
@@ -309,10 +331,10 @@ distube
         //     `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`)
         const embed = new MessageEmbed()
             .setColor('#15FF02')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setTitle('**Prefix:** `.`')
             .setThumbnail('https://yt3.ggpht.com/ytc/AAUvwnhRCS00s226UbsoI2uhe2XFedXEIBw9jaOtstvTo08=s900-c-k-c0x00ffffff-no-rj')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
+            .setDescription(':clipboard: **Diminta Oleh** <@' + playlist.user + '>\n\u200B\n\u200B')
             .addField('\u200B', '\u200B', true)
             .addField('**Song Player**', '\u200B', true)
             .addField(':track_next: Menambahkan Daftar Lagu', playlist.name)
@@ -323,7 +345,7 @@ distube
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
         let i = 0;
-        message.channel.send(`**Pilih Salah Satu Lagu Dibawah Ini**\n*Ketik Salah Satu Angka Untuk Memilih*\n\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n\n")}\n\n*Ketik Huruf Apapun Atau Tunggu 1 Menit Untuk Membatalkan*\n\n**Diminta Oleh** @${message.author.tag}`);
+        message.channel.send(`**Pilih Salah Satu Lagu Dibawah Ini**\n*Ketik Salah Satu Angka Untuk Memilih*\n\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n\n")}\n\n*Ketik Huruf Apapun Atau Tunggu 1 Menit Untuk Membatalkan*\n\n**Diminta Oleh** ${message.author}`);
     })
     // DisTubeOptions.searchSongs = true
     .on("searchCancel", (message) => message.channel.send(':x: **Pencarian Dibatalkan**'))
@@ -332,16 +354,17 @@ distube
         message.channel.send("An error encountered: " + e);
     })
     .on('empty', async message => {
-        const embed = new MessageEmbed()
-            .setColor('#FF0000')
-            .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
-            .setTitle('**Prefix:** `.`')
-            .setDescription(':clipboard: **Diminta Oleh ' + message.author.username + '**\n\u200B\n\u200B')
-            .addField('\u200B', '\u200B', true)
-            .addField('Song Player', '\u200B', true)
-            .addField('\u200B', '\u200B', true)
-            .addField(':no_entry: **Meninggalkan Voice Channel**', voiceChannel.name)
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+        const voiceChannel = message.member.voice.channel,
+            embed = new MessageEmbed()
+                .setColor('#FF0000')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setTitle('**Prefix:** `.`')
+                .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
+                .addField('\u200B', '\u200B', true)
+                .addField('Song Player', '\u200B', true)
+                .addField('\u200B', '\u200B', true)
+                .addField(':no_entry: **Meninggalkan Voice Channel**', voiceChannel.name)
+                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
         await message.channel.send(embed)
     })
 

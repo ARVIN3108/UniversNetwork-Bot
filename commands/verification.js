@@ -10,7 +10,7 @@ module.exports = {
 
             let embed = new MessageEmbed()
                 .setColor('#F3FF00')
-                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/63db7674caa58a0694d989693bc4b60a.png?size=64', 'https://minecraft-mp.com/server-s272254')
+                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('Halo Verifikasi Dulu Ya')
                 .addField(':flag_id:', 'Pencet Emoji :white_check_mark: Untuk Verifikasi')
                 .addField(':flag_um:', 'Click Emoji :white_check_mark: For Verification')
