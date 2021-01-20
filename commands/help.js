@@ -2,18 +2,6 @@ module.exports = {
     name: 'help',
     description: 'This is a help command',
     execute(message, MessageEmbed) {
-        if (message.author.id === '700166055326384179') {
-            const embed = new MessageEmbed()
-                .setColor('#02C2FF')
-                .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
-                .setTitle('**Prefix:** `.`')
-                .addField('\u200B', '\u200B', true)
-                .addField('Developer List Of Commands', '\u200B', true)
-                .addField('\u200B', '\u200B', true)
-                .addField('`.reload` `.load`', 'Untuk me-reload semua command')
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
-            message.author.send(embed)
-        }
         const embed = new MessageEmbed()
             .setColor('#02C2FF')
             .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
