@@ -287,6 +287,7 @@ distube
             .addField(':stopwatch: Durasi', song.formattedDuration)
             .addField(':movie_camera: Link Video', song.url)
             .setImage(song.thumbnail)
+            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
         message.channel.send(embed)
     })
     .on("playList", (message, queue, playlist, song) => {
