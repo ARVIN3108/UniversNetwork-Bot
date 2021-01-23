@@ -1,11 +1,11 @@
 module.exports = {
     name: 'vote',
     description: 'This is a vote command',
-    execute(message, MessageEmbed) {
+    execute(message, MessageEmbed, Prefix) {
         const Embed = new MessageEmbed()
             .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setColor('#15FF02')
-            .setTitle('**Prefix:** `.`')
+            .setTitle('**Prefix:** `' + Prefix + '`')
             .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
             .setImage('https://cdn.discordapp.com/attachments/761872007116750852/784062571535794196/standard.gif')
             .addField('\u200B', '\u200B', true)

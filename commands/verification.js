@@ -29,7 +29,9 @@ module.exports = {
                 if (reaction.message.channel.id == channel) {
                     if (reaction.emoji.name === verificationEmoji) {
                         await reaction.message.guild.members.cache.get(user.id).roles.add(verificationRole);
-                        await reaction.message.guild.members.cache.get(user.id).roles.add(unmuteRole);
+                        await reaction.message.guild.members.cache.get(user.id).roles.add(unmuteRole)
+                        await messageEmbed.reactions.removeAll()
+                        await messageEmbed.react(verificationEmoji)
                     }
                 } else {
                     return;
