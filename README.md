@@ -12,6 +12,8 @@
 - `.join` | `.connect` | `.summon` - To Make Bots Enter The Voice Channel *(Just Like Most Music Bots)*
 - `.leave` | `.disconnect` | `.dc` | `.stop` - To Stop And Disconnect The Bot After Playing A Song
 - `.vote` - To Visit This Vote Server Link
+- `.ping` - To Measure Ping From Bots And API
+- `.search` - To Search For An Image On Google
 - `.info` - To View Information From Servers or Bots
 
 ## Admin Commands
