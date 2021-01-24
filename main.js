@@ -189,7 +189,7 @@ client.on('message', async message => {
     } else if (command === 'playskip' || command === 'ps') {
         client.commands.get('playskip').execute(message, args, distube, wh)
     } else if (command === 'leave' || command === 'disconnect' || command === 'dc' || command === 'stop') {
-        client.commands.get('leave').execute(message, MessageEmbed, distube)
+        client.commands.get('leave').execute(message, MessageEmbed, distube, Prefix)
     } else if (command === 'skip' || command === 's') {
         client.commands.get('skip').execute(message, args, distube)
     } else if (command === 'loop' || command === 'repeat') {
