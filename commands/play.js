@@ -4,23 +4,21 @@ module.exports = {
     name: 'play',
     description: 'Joins and plays a video from youtube',
     async execute(message, args, distube, wh) {
+        message.delete()
         const voiceChannel = message.member.voice.channel,
             music = args.join(" ")
 
-        if (!music) return message.delete()
-            .then(wh.send(':exclamation: **Kamu perlu menyertakan nama atau link video!**', {
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-            }))
+        if (!music) return wh.send(':exclamation: **Kamu perlu menyertakan nama atau link video!**', {
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+        })
 
-        if (!voiceChannel) return message.delete()
-            .then(wh.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**', {
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-            }))
+        if (!voiceChannel) return wh.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**', {
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+        })
 
-        distube.play(message, music)
-        message.delete().then(wh.send(':mag_right: **Mencari** `' + music + '`', {
+        distube.play(message, music).then(wh.send(':mag_right: **Mencari** `' + music + '`', {
             username: 'UniversNetwork Song Player',
             avatarURL: 'https://i.imgur.com/pBmA5S6.png'
         }))

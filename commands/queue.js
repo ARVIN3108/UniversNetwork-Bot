@@ -1,12 +1,19 @@
 module.exports = {
     name: 'queue',
     description: 'To view list queue',
-    async execute(message, args, distube) {
+    async execute(message, distube, wh) {
+        message.delete()
         let queue = await distube.getQueue(message)
         if (queue) {
-            message.delete().then(message.channel.send('**Daftar Lagu Yang Diputar Saat Ini**\n\n' + queue.songs.map((song, id) => `**${id+1}**. [${song.name}](${song.url}) - \`${song.formattedDuration}\``).join("\n\n")))
+            wh.send('**Daftar Lagu Yang Diputar Saat Ini**\n\n' + queue.songs.map((song, id) => `**${id + 1}**. [${song.name}](${song.url}) - \`${song.formattedDuration}\``).join("\n\n") + `\n\n**Diminta Oleh ${message.author}**`, {
+                username: 'UniversNetwork Song Player',
+                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+            })
         } else if (!queue) {
-            message.delete().then(message.channel.send(':x: **Bot tidak sedang memutar lagu!**'))
+            wh.send(':x: **Bot tidak sedang memutar lagu!**', {
+                username: 'UniversNetwork Song Player',
+                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+            })
         }
     }
 }

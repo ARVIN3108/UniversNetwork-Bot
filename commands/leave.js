@@ -1,7 +1,7 @@
 module.exports = {
     name: 'leave',
     description: 'stop the bot and leave the channel',
-    async execute(message, MessageEmbed, distube, wh, Prefix) {
+    async execute(message, MessageEmbed, distube, Prefix, wh) {
         const voiceChannel = message.member.voice.channel;
         let queue = await distube.getQueue(message)
         if (!voiceChannel) return message.delete()
