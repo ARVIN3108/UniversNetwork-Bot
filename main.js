@@ -14,7 +14,7 @@ const Discord = require('discord.js'),
     MongoDB = process.env.MongoDB,
     tempvc = require("./module/tempvc.js"),
     login = require('./module/login.js');
-// tempvc(client)
+    tempvc(client)
 
 mongoose.connect(MongoDB, {
     useUnifiedTopology: true,
