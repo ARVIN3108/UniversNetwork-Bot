@@ -46,7 +46,7 @@ client.once('ready', () => {
             'Dibuat Oleh ARVIN3108 ID',
             'IP: play.universnetwork.xyz',
             'Web: universnetwork.xyz',
-            'OneBlock Coming Soon'
+            'Minigame Coming Soon'
         ]
         const status = statuses[Math.floor(Math.random() * statuses.length)]
         client.user.setActivity(status)
