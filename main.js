@@ -337,7 +337,7 @@ client.once('ready', () => {
         } else if (command === 'leave' || command === 'disconnect' || command === 'dc' || command === 'stop') {
             client.commands.get('leave').execute(message, MessageEmbed, distube, Prefix, wh)
         } else if (command === 'skip' || command === 's') {
-            client.commands.get('skip').execute(message, args, distube, wh, Prefix, MessageEmbed)
+            client.commands.get('skip').execute(message, distube, wh, Prefix, MessageEmbed)
         } else if (command === 'loop' || command === 'repeat') {
             client.commands.get('loop').execute(message, args, distube, wh, Prefix, MessageEmbed)
         } else if (command === 'shuffle' || command === 'random' || command === 'rm') {
