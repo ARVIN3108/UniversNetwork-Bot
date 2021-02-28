@@ -6,15 +6,16 @@ const Discord = require('discord.js'),
     Canvas = require('canvas'),
     mongoose = require('mongoose'),
     { confirmation } = require('@reconlx/discord.js'),
-    db = require('quick.db'),
-//     { Token, Prefix, Version, embedURL, MongoDB } = require('./config.json'),
-    Token = process.env.Token,
-    Prefix = process.env.Prefix,
-    Version = process.env.Version,
-    MongoDB = process.env.MongoDB,
+    // db = require('quick.db'),
+    { Token, Prefix, Version, MongoDB, Icon } = require('./config.json'),
+    // Token = process.env.Token,
+    // Prefix = process.env.Prefix,
+    // Version = process.env.Version,
+    // MongoDB = process.env.MongoDB,
+    // Icon = process.env.Icon,
     tempvc = require("./module/tempvc.js"),
     login = require('./module/login.js');
-    tempvc(client)
+// tempvc(client)
 
 mongoose.connect(MongoDB, {
     useUnifiedTopology: true,
@@ -32,8 +33,8 @@ function loadCMD() {
         commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
     for (const file of commandFiles) {
         delete require.cache[require.resolve(`./commands/${file}`)]
-        const command = require(`./commands/${file}`)
-        client.commands.set(command.name, command)
+        const cmd = require(`./commands/${file}`)
+        client.commands.set(cmd.name, cmd)
     }
 }
 loadCMD()
@@ -84,7 +85,7 @@ client.once('ready', () => {
     //             .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //             .setTitle('Pesan akan segera dibalas oleh staff.')
     //             .setDescription('Klik emoji :lock: untuk menutup tiket.')
-    //             .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //             .setFooter('Made By ARVIN3108 ID', Icon)
 
     //     if (reaction.message.partial) await reaction.message.fetch()
     //     if (reaction.partial) await reaction.fetch()
@@ -154,7 +155,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Apakah kamu yakin untuk menutup tiket?')
     //                     .setDescription('Klik emoji :x: untuk membatalkan.\n\nKlik emoji :white_check_mark: untuk menutup tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
 
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.edit(embed)
@@ -183,7 +184,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Tiket telah Ditutup.')
     //                     .setDescription('Klik emoji :unlock: untuk membuka kembali tiket.\n\nKlik emoji :no_entry: untuk tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.react('🔓')
     //                 reaction.message.react('⛔')
@@ -198,7 +199,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Apakah kamu yakin untuk menghapus tiket?')
     //                     .setDescription('Klik emoji :x: untuk membatalkan.\n\nKlik emoji :white_check_mark: untuk menghapus tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.react('🔓')
     //                 reaction.message.react('⛔')
@@ -220,7 +221,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Tiket telah Ditutup.')
     //                     .setDescription('Klik emoji :unlock: untuk membuka kembali tiket.\n\nKlik emoji :no_entry: untuk menghapus tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
 
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.channel.updateOverwrite(id, { 'VIEW_CHANNEL': false })
@@ -245,7 +246,7 @@ client.once('ready', () => {
     //                     .setColor('RANDOM')
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Tiket akan dihapus dalam 5 detik.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.edit(embed);
 
@@ -263,7 +264,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Apakah kamu yakin untuk membuka tiket?')
     //                     .setDescription('Klik emoji :x: untuk membatalkan.\n\nKlik emoji :white_check_mark: untuk membuka tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
 
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.edit(embed)
@@ -281,7 +282,7 @@ client.once('ready', () => {
     //                     .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
     //                     .setTitle('Apakah kamu yakin untuk menghapus tiket?')
     //                     .setDescription('Klik emoji :x: untuk membatalkan.\n\nKlik emoji :white_check_mark: untuk menghapus tiket.')
-    //                     .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+    //                     .setFooter('Made By ARVIN3108 ID', Icon)
     //             if (unlock_quest === 'true') {
     //                 reaction.message.reactions.removeAll()
     //                 reaction.message.edit(embed)
@@ -311,73 +312,79 @@ client.once('ready', () => {
     .on('message', async message => {
         if (!message.content.startsWith(Prefix) || message.author.bot || message.author.dmChannel) return
         const args = message.content.slice(Prefix.length).split(/ +/),
-            command = args.shift().toLowerCase(),
+            cmd = args.shift().toLowerCase(),
             ch = client.channels.cache.get(message.channel.id),
             webhooks = await ch.fetchWebhooks(),
             wh = webhooks.first();
-        if (command === 'ip') {
-            client.commands.get('ip').execute(message, args)
-        } else if (command === 'website' || command === 'web') {
+        if (cmd === 'ip') {
+            client.commands.get('ip').execute(message)
+        } else if (cmd === 'website' || cmd === 'web') {
             client.commands.get('website').execute(message)
-        } else if (command === 'kick') {
+        } else if (cmd === 'kick') {
             client.commands.get('kick').execute(message, args)
-        } else if (command === 'ban') {
+        } else if (cmd === 'ban') {
             client.commands.get('ban').execute(message, args)
-        } else if (command === 'clear') {
+        } else if (cmd === 'clear') {
             client.commands.get('clear').execute(message, args)
-        } else if (command === 'mute') {
+        } else if (cmd === 'mute') {
             client.commands.get('mute').execute(message, args)
-        } else if (command === 'unmute') {
+        } else if (cmd === 'unmute') {
             client.commands.get('unmute').execute(message, args)
-        } else if (command === 'play' || command === 'p') {
+        } else if (cmd === 'play' || cmd === 'p') {
             client.commands.get('play').execute(message, args, distube, wh)
             //        client.commands.get('play').execute(message, args, MessageEmbed, client)
-        } else if (command === 'playskip' || command === 'ps') {
+        } else if (cmd === 'playskip' || cmd === 'ps') {
             client.commands.get('playskip').execute(message, args, distube, wh)
-        } else if (command === 'leave' || command === 'disconnect' || command === 'dc' || command === 'stop') {
-            client.commands.get('leave').execute(message, MessageEmbed, distube, Prefix, wh)
-        } else if (command === 'skip' || command === 's') {
-            client.commands.get('skip').execute(message, distube, wh, Prefix, MessageEmbed)
-        } else if (command === 'loop' || command === 'repeat') {
-            client.commands.get('loop').execute(message, args, distube, wh, Prefix, MessageEmbed)
-        } else if (command === 'shuffle' || command === 'random' || command === 'rm') {
-            client.commands.get('shuffle').execute(message, distube, MessageEmbed, wh, Prefix)
-        } else if (command === 'volume' || command === 'vol') {
-            client.commands.get('volume').execute(message, args, distube, MessageEmbed, Prefix, wh)
-        } else if (command === 'autoplay' || command === 'ap') {
-            client.commands.get('autoplay').execute(message, distube, MessageEmbed, Prefix, wh)
-        } else if (command === 'queue' || command === 'q') {
-            client.commands.get('queue').execute(message, distube, wh)
-            // } else if (command === 'resume') {
-            //     client.commands.get('resume').execute(message, args, distube)
-            // } else if (command === 'pause') {
-            //     client.commands.get('pause').execute(message, args, distube)
+        } else if (cmd === 'leave' || cmd === 'disconnect' || cmd === 'dc' || cmd === 'stop') {
+            client.commands.get('leave').execute(message, MessageEmbed, distube, Prefix, wh, Icon);
+        } else if (cmd === 'skip' || cmd === 's') {
+            client.commands.get('skip').execute(message, distube, wh, Prefix, MessageEmbed, Icon);
+        } else if (cmd === 'loop' || cmd === 'repeat') {
+            client.commands.get('loop').execute(message, args, distube, wh, Prefix, MessageEmbed, Icon);
+        } else if (cmd === 'shuffle' || cmd === 'random' || cmd === 'rm') {
+            client.commands.get('shuffle').execute(message, distube, MessageEmbed, wh, Prefix, Icon);
+        } else if (cmd === 'volume' || cmd === 'vol') {
+            client.commands.get('volume').execute(message, args, distube, MessageEmbed, Prefix, wh, Icon);
+        } else if (cmd === 'autoplay' || cmd === 'ap') {
+            client.commands.get('autoplay').execute(message, distube, MessageEmbed, Prefix, wh, Icon);
+        } else if (cmd === 'queue' || cmd === 'q') {
+            client.commands.get('queue').execute(message, distube, wh);
+            // } else if (cmd === 'resume') {
+            //     client.commands.get('resume').execute(message, args, distube);
+            // } else if (cmd === 'pause') {
+            //     client.commands.get('pause').execute(message, args, distube);
 
-        } else if (command === 'vote') {
-            client.commands.get('vote').execute(message, MessageEmbed, Prefix)
-        } else if (command === 'join' || command === 'summon' || command === 'connect') {
-            client.commands.get('join').execute(message, MessageEmbed, wh, Prefix)
-            // } else if (command === 'verification' || command === 'verify') {
-            //     client.commands.get('verification').execute(message, MessageEmbed, client)
-        } else if (command === 'reload' || command === 'load') {
-            client.commands.get('reload').execute(message, loadCMD)
-        } else if (command === 'info') {
-            client.commands.get('info').execute(message, args, MessageEmbed, Version, Prefix)
-        } else if (command === 'say') {
-            client.commands.get('say').execute(message, db, client)
-        } else if (command === 'ping') {
-            client.commands.get('ping').execute(message, client, MessageEmbed, Prefix)
-        } else if (command === 'help' || command === '?') {
-            client.commands.get('help').execute(message, client, MessageEmbed, Prefix)
-        } else if (command === 'search') {
-            client.commands.get('search').execute(message, args, MessageEmbed, wh, Prefix)
-            // } else if (command === 'announcement' || command === 'ac') {
-            //     client.commands.get('announcement').execute(message, args, client)
-        } else if (command === 'minecraft' || command === 'mc') {
-            client.commands.get('minecraft').execute(message, args, wh, Prefix, MessageEmbed, command)
+        } else if (cmd === 'vote') {
+            client.commands.get('vote').execute(message, MessageEmbed, Prefix, Icon);
+        } else if (cmd === 'join' || cmd === 'summon' || cmd === 'connect') {
+            client.commands.get('join').execute(message, MessageEmbed, wh, Prefix, Icon);
+            // } else if (cmd === 'verification' || cmd === 'verify') {
+            //     client.commands.get('verification').execute(message, MessageEmbed, client);
+        } else if (cmd === 'reload' || cmd === 'load') {
+            client.commands.get('reload').execute(message, loadCMD);
+        } else if (cmd === 'info') {
+            client.commands.get('info').execute(message, args, MessageEmbed, Version, Prefix, Icon);
+        } else if (cmd === 'say') {
+            client.commands.get('say').execute(message, args);
+        } else if (cmd === 'ping') {
+            client.commands.get('ping').execute(message, client, MessageEmbed, Prefix, Icon);
+        } else if (cmd === 'help' || cmd === '?') {
+            client.commands.get('help').execute(message, client, MessageEmbed, Prefix, Icon);
+        } else if (cmd === 'search') {
+            client.commands.get('search').execute(message, args, MessageEmbed, wh, Prefix, Icon);
+            // } else if (cmd === 'announcement' || cmd === 'ac') {
+            //     client.commands.get('announcement').execute(message, args, client);
+        } else if (cmd === 'minecraft' || cmd === 'mc') {
+            client.commands.get('minecraft').execute(message, args, wh, Prefix, MessageEmbed, cmd, Icon);
+        } else if (cmd === 'whatsapp', cmd === 'wa') {
+            client.commands.get('whatsapp').execute(message, wh);
+        } else if (cmd === 'avatar') {
+            client.commands.get('avatar').execute(message, args, MessageEmbed, Icon, Prefix);
+        } else if (cmd === 'anime') {
+            client.commands.get('anime').execute(message, args, wh, MessageEmbed, Prefix, Icon)
         }
-        // } else if (command === 'canvas') {
-        //     client.commands.get('canvas').execute(message, MessageAttachment)
+        // } else if (cmd === 'canvas') {
+        //     client.commands.get('canvas').execute(message, MessageAttachment);
         // }
     })
 
@@ -390,8 +397,12 @@ distube.on("playSong", async (message, queue, song) => {
     const voiceChannel = message.member.voice.channel,
         ch = client.channels.cache.get(message.channel.id),
         webhooks = await ch.fetchWebhooks(),
-        wh = webhooks.first(),
-        embed = new MessageEmbed()
+        wh = webhooks.first();
+
+    wh.send({
+        username: 'UniversNetwork Song Player',
+        avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+        embeds: [new MessageEmbed()
             .setColor('#02C2FF')
             .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setTitle('**Prefix:** `' + Prefix + '`')
@@ -405,13 +416,8 @@ distube.on("playSong", async (message, queue, song) => {
             .addField(':movie_camera: Link Video', song.url)
             .addField(':information_source: Status', status(queue))
             .setImage(song.thumbnail)
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
-
-    wh.send({
-        username: 'UniversNetwork Song Player',
-        avatarURL: 'https://i.imgur.com/pBmA5S6.png',
-        embeds: [embed]
-    })
+            .setFooter('Made By ARVIN3108 ID', Icon)]
+    });
 })
 
     .on("addSong", async (message, queue, song) => {
@@ -419,8 +425,12 @@ distube.on("playSong", async (message, queue, song) => {
         // `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)
         const ch = client.channels.cache.get(message.channel.id),
             webhooks = await ch.fetchWebhooks(),
-            wh = webhooks.first(),
-            embed = new MessageEmbed()
+            wh = webhooks.first();
+
+        wh.send({
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+            embeds: [new MessageEmbed()
                 .setColor('#15FF02')
                 .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `' + Prefix + '`')
@@ -432,13 +442,8 @@ distube.on("playSong", async (message, queue, song) => {
                 .addField(':stopwatch: Durasi', song.formattedDuration)
                 .addField(':movie_camera: Link Video', song.url)
                 .setImage(song.thumbnail)
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
-
-        wh.send({
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
-            embeds: [embed]
-        })
+                .setFooter('Made By ARVIN3108 ID', Icon)]
+        });
     })
 
     .on("playList", async (message, queue, playlist, song) => {
@@ -447,8 +452,12 @@ distube.on("playSong", async (message, queue, song) => {
         const voiceChannel = message.member.voice.channel,
             ch = client.channels.cache.get(message.channel.id),
             webhooks = await ch.fetchWebhooks(),
-            wh = webhooks.first(),
-            embedlist = new MessageEmbed()
+            wh = webhooks.first();
+
+        wh.send({
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+            embeds: [new MessageEmbed()
                 .setColor('#FBFF00')
                 .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `' + Prefix + '`')
@@ -460,9 +469,9 @@ distube.on("playSong", async (message, queue, song) => {
                 .addField(':arrow_forward: Sedang Memutar Daftar Lagu', playlist.name)
                 .addField(':1234: Jumlah Lagu', playlist.songs.length)
                 .addField(':stopwatch: Total Durasi', playlist.formattedDuration)
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64'),
+                .setFooter('Made By ARVIN3108 ID', Icon),
 
-            embed = new MessageEmbed()
+            new MessageEmbed()
                 .setColor('#02C2FF')
                 .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `' + Prefix + '`')
@@ -476,13 +485,8 @@ distube.on("playSong", async (message, queue, song) => {
                 .addField(':movie_camera: Link Video', song.url)
                 .addField(':information_source: Status', status(queue))
                 .setImage(song.thumbnail)
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
-
-        wh.send({
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
-            embeds: [embedlist, embed]
-        })
+                .setFooter('Made By ARVIN3108 ID', Icon)]
+        });
     })
 
     .on("addList", async (message, queue, playlist) => {
@@ -490,8 +494,12 @@ distube.on("playSong", async (message, queue, song) => {
         //     `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`)
         const ch = client.channels.cache.get(message.channel.id),
             webhooks = await ch.fetchWebhooks(),
-            wh = webhooks.first(),
-            embed = new MessageEmbed()
+            wh = webhooks.first();
+
+        wh.send({
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+            embeds: [new MessageEmbed()
                 .setColor('#15FF02')
                 .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `' + Prefix + '`')
@@ -502,13 +510,8 @@ distube.on("playSong", async (message, queue, song) => {
                 .addField(':track_next: Menambahkan Daftar Lagu', playlist.name)
                 .addField(':1234: Jumlah Lagu', playlist.songs.length)
                 .addField(':stopwatch: Total Durasi', playlist.formattedDuration)
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
-
-        wh.send({
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png',
-            embeds: [embed]
-        })
+                .setFooter('Made By ARVIN3108 ID', Icon)]
+        });
     })
     // DisTubeOptions.searchSongs = true
     .on("searchResult", async (message, result) => {
@@ -526,16 +529,16 @@ distube.on("playSong", async (message, queue, song) => {
     .on("searchCancel", async (message) => {
         const ch = client.channels.cache.get(message.channel.id),
             webhooks = await ch.fetchWebhooks(),
-            wh = webhooks.first()
+            wh = webhooks.first();
 
         wh.send(':x: **Pencarian Dibatalkan**', {
             username: 'UniversNetwork Song Player',
             avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        })
+        });
     })
 
     .on("error", (message, e) => {
-        console.error(e)
+        console.error(e);
         message.channel.send("An error encountered: " + e);
     })
 
@@ -547,7 +550,7 @@ distube.on("playSong", async (message, queue, song) => {
         wh.send(':x: **Tidak ada orang di voice channel!**\n:no_entry: **Meninggalkan voice channel!**', {
             username: 'UniversNetwork Song Player',
             avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        })
+        });
     })
 
     .on('noRelated', async message => {
@@ -558,7 +561,7 @@ distube.on("playSong", async (message, queue, song) => {
         wh.send(':x: **Tidak ada lagu yang bisa diputar!\n:stop_button: **Menghentikan pemutar lagu!**', {
             username: 'UniversNetwork Song Player',
             avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        })
+        });
     })
 
     .on('initQueue', queue => {
