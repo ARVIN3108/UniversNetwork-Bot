@@ -7,15 +7,15 @@ const Discord = require('discord.js'),
     mongoose = require('mongoose'),
     { confirmation } = require('@reconlx/discord.js'),
     // db = require('quick.db'),
-    // { Token, Prefix, Version, MongoDB, Icon } = require('./config.json'),
-    Token = process.env.Token,
-    Prefix = process.env.Prefix,
-    Version = process.env.Version,
-    MongoDB = process.env.MongoDB,
-    Icon = process.env.Icon,
+    { Token, Prefix, Version, MongoDB, Icon } = require('./config.json'),
+    // Token = process.env.Token,
+    // Prefix = process.env.Prefix,
+    // Version = process.env.Version,
+    // MongoDB = process.env.MongoDB,
+    // Icon = process.env.Icon,
     tempvc = require("./module/tempvc.js"),
     login = require('./module/login.js');
-// tempvc(client)
+tempvc(client)
 
 mongoose.connect(MongoDB, {
     useUnifiedTopology: true,
