@@ -6,7 +6,7 @@ module.exports = {
         let queue = await distube.getQueue(message)
 
         if (queue) {
-            distube.skip(message).then(wh.send(':track_next: **Melewati Lagu!**', {
+            distube.skip(message).then(wh.send({
                 username: 'UniversNetwork Song Player',
                 avatarURL: 'https://i.imgur.com/pBmA5S6.png',
                 embeds: [new MessageEmbed()
