@@ -3,6 +3,8 @@
 ## Member Commands
 - `.help` | `.?` - To View Command List
 - `.ip` - To See The IP Of This Server
+- `.website` | `.web` - To View The Official Website Of This Server
+- `.whatsapp` | `.wa` - To View WhatsApp Groups From This Server
 - `.play` | `.p` - To Play Songs *(Just Like Most Music Bots)*
 - `.loop` | `.repeat` - To Activate Or Deactivate Song Repeat Mode *(Just Like Most Music Bots)*
 - `.shuffle` | `.random` | `.rm` - To Activate Or Deactivate Song Shuffle Mode *(Just Like Most Music Bots)*
