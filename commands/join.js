@@ -1,7 +1,7 @@
 module.exports = {
     name: 'join',
     description: 'Joins To Some Voice Channel',
-    async execute(message, MessageEmbed, wh) {
+    async execute(message, MessageEmbed, wh, Icon) {
         const voiceChannel = message.member.voice.channel,
             permissions = voiceChannel.permissionsFor(message.client.user);
         if (!voiceChannel) return message.delete()
@@ -28,7 +28,7 @@ module.exports = {
             .addField('Song Player', '\u200B', true)
             .addField('\u200B', '\u200B', true)
             .addField(':white_check_mark: **Terhubung Ke Voice Channel**', voiceChannel.name)
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+            .setFooter('Made By ARVIN3108 ID', Icon)
         await voiceChannel.join()
         await message.delete().then(wh.send({
             username: 'UniversNetwork Song Player',

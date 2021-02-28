@@ -1,19 +1,19 @@
 module.exports = {
     name: 'vote',
     description: 'This is a vote command',
-    execute(message, MessageEmbed, Prefix) {
+    execute(message, MessageEmbed, Prefix, Icon) {
         const Embed = new MessageEmbed()
             .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
             .setColor('#15FF02')
             .setTitle('**Prefix:** `' + Prefix + '`')
             .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
-            .setImage('https://cdn.discordapp.com/attachments/761872007116750852/784062571535794196/standard.gif')
+            .setImage('https://minecraft-mp.com/images/banners/banner-272254-1611571259.gif')
             .addField('\u200B', '\u200B', true)
             .addField('List Of Vote Link', '\u200B', true)
             .addField('\u200B', '\u200B', true)
             .addField('Minecraft-MP', 'https://minecraft-mp.com/server/272254/vote/')
             .addField('MinecraftServers', 'https://minecraftservers.org/vote/600734')
-            .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+            .setFooter('Made By ARVIN3108 ID', Icon)
         message.delete().then(message.channel.send(Embed))
     }
 }

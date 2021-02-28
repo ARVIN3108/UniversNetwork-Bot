@@ -1,9 +1,9 @@
 module.exports = {
     name: 'ping',
     description: 'To Calculate Bot & API ping',
-    execute(message, client, MessageEmbed) {
+    execute(message, client, MessageEmbed, Icon) {
         message.delete()
-        message.channel.send(':hourglass: **Menghitung Ping Dalam 5 Detik...**').then((resultMessage) => {
+        message.channel.send(':hourglass: **Menghitung Ping Dalam 5 Detik...**').then(resultMessage => {
             const ping = resultMessage.createdTimestamp - message.createdTimestamp
 
             setTimeout(function () {
@@ -14,7 +14,7 @@ module.exports = {
                     .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
                     .addField('🤖 Bot Latency', ping, true)
                     .addField('🌐 API Latency', client.ws.ping, true)
-                    .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+                    .setFooter('Made By ARVIN3108 ID', Icon)
                 resultMessage.edit('', embed)
             }, 5000)
         })

@@ -7,7 +7,7 @@ var Scraper = require('images-scraper'),
 module.exports = {
     name: 'search',
     description: 'Search image from google',
-    async execute(message, args, MessageEmbed, wh, Prefix) {
+    async execute(message, args, MessageEmbed, wh, Prefix, Icon) {
         const image_query = args.join(" ")
 
         if (!image_query) return message.delete()
@@ -21,8 +21,9 @@ module.exports = {
                 .setAuthor('UniversNetwork', 'https://cdn.discordapp.com/app-icons/792994169659981846/eccf642340521c532b0ade8f00591114.png?size=64', 'https://minecraft-mp.com/server-s272254')
                 .setTitle('**Prefix:** `' + Prefix + '`')
                 .setDescription(':clipboard: **Diminta Oleh** <@' + message.author + '>\n\u200B\n\u200B')
+                .addField('Hasil Pencarian Gambar', `\`${image_query}\``)
                 .setImage(image_result[0].url)
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+                .setFooter('Made By ARVIN3108 ID', Icon)
 
         message.delete().then(wh.send({
             username: 'UniversNetwork Google Searching System',

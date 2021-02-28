@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: 'This is a help command',
-    async execute(message, client, MessageEmbed, Prefix) {
+    async execute(message, client, MessageEmbed, Prefix, Icon) {
         const prevEmoji = '⬅️',
             nextEmoji = '➡️',
             embed = new MessageEmbed()
@@ -14,6 +14,8 @@ module.exports = {
                 .addField('\u200B', '\u200B', true)
                 .addField(`\`${Prefix}help\` \`${Prefix}?\``, 'Untuk memunculkan menu ini')
                 .addField(`\`${Prefix}ip\``, 'Untuk melihat ip dari server ini')
+                .addField(`\`${Prefix}website\` \`${Prefix}web\``, 'Untuk melihat website resmi dari server ini')
+                .addField(`\`${Prefix}whatsapp\` \`${Prefix}wa\``, 'Untuk melihat grup whatsapp dari server ini')
                 .addField(`\`${Prefix}play\` \`${Prefix}p\``, 'Untuk memutar lagu *(sama seperti bot musik pada umumnya)*')
                 .addField(`\`${Prefix}loop\` \`${Prefix}repeat\``, 'Untuk mengaktifkan atau menonaktifkan mode repeat lagu *(sama seperti bot musik pada umumnya)*')
                 .addField(`\`${Prefix}shuffle\` \`${Prefix}random\` \`${Prefix}rm\``, 'Untuk mengaktifkan atau menonaktifkan mode acak lagu *(sama seperti bot musik pada umumnya)*')
@@ -25,10 +27,13 @@ module.exports = {
                 .addField(`\`${Prefix}vote\``, 'Untuk mengunjungi link vote server ini')
                 .addField(`\`${Prefix}ping\``, 'Untuk mengukur ping dari bot dan API')
                 .addField(`\`${Prefix}search\``, 'Untuk mencari suatu gambar di google')
+                .addField(`\`${Prefix}minecraft\` \`${Prefix}mc\``, 'Untuk melihat info tentang server minecraft')
+                .addField(`\`${Prefix}avatar\``, 'Untuk melihat avatar')
+                .addField(`\`${Prefix}anime\``, 'Untuk mencari info tentang anime')
                 .addField(`\`${Prefix}info\``, 'Untuk melihat informasi dari server atau bot\n\u200B\n\u200B')
                 .addField('Check The Wiki For English Version', 'https://github.com/ARVIN3108/UniversNetwork/blob/main/README.md\n\u200B')
                 .addField('Halaman 1/2', 'Klik Emoji ' + nextEmoji + ' Untuk Pergi Ke Halaman Berikutnya')
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64'),
+                .setFooter('Made By ARVIN3108 ID', Icon),
 
             embeds = new MessageEmbed()
                 .setColor('#02C2FF')
@@ -49,7 +54,7 @@ module.exports = {
                 .addField(`\`${Prefix}verification\` \`${Prefix}verify\``, 'Untuk meng-set channel verifikasi (mirip dengan carl bot)\n\u200B\n\u200B')
                 .addField('Check The Wiki For English Version', 'https://github.com/ARVIN3108/UniversNetwork/blob/main/README.md\n\u200B')
                 .addField('Halaman 2/2', 'Klik Emoji ' + prevEmoji + ' Untuk Pergi Ke Halaman Sebelumnya')
-                .setFooter('Made By ARVIN3108 ID', 'https://cdn.discordapp.com/avatars/700166055326384179/3ec8287199dc402fe6a587902e300749.png?size=64')
+                .setFooter('Made By ARVIN3108 ID', Icon)
         let result = await message.channel.send(embed)
         message.delete().then(result.react(nextEmoji))
 
