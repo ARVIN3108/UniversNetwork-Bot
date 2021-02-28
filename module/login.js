@@ -22,7 +22,6 @@ module.exports = function (client, Token) {
                 } else {
                     console.log('Loaded @Discord.JS/Opus Version ' + version)
                     console.log('Loaded Discord.JS Version ' + require('discord.js').version)
-                    console.log('Loaded Quick DB Version ' + require('quick.db').version)
                     console.log('Loaded Mongoose Version ' + require('mongoose').version)
                     console.log('Loaded DisTube Version ' + require('distube').version)
                     console.log('Loaded Canvas Version ' + require('canvas').version)
@@ -50,99 +49,107 @@ module.exports = function (client, Token) {
                                 console.log('Loaded YouTube DL Version ' + version)
                             }
 
-                            fetch('ytdl-core', (error, version) => {
+                            fetch('youtube-dl-exec', (error, version) => {
                                 if (error) {
                                     console.error(error)
                                 } else {
-                                    console.log('Loaded YTDL Core Version ' + version)
+                                    console.log('Loaded Youtube DL Exec Version ' + version)
                                 }
 
-                                fetch('yt-search', (error, version) => {
+                                fetch('ytdl-core', (error, version) => {
                                     if (error) {
                                         console.error(error)
                                     } else {
-                                        console.log('Loaded YT Search Version ' + version)
+                                        console.log('Loaded YTDL Core Version ' + version)
                                     }
 
-                                    fetch('mongodb', (error, version) => {
+                                    fetch('yt-search', (error, version) => {
                                         if (error) {
                                             console.error(error)
                                         } else {
-                                            console.log('Loaded MongoDB Version ' + version)
+                                            console.log('Loaded YT Search Version ' + version)
                                         }
 
-                                        fetch('version', (error, version) => {
+                                        fetch('mongodb', (error, version) => {
                                             if (error) {
                                                 console.error(error)
                                             } else {
-                                                console.log('Loaded Package Version Detector Version ' + version)
+                                                console.log('Loaded MongoDB Version ' + version)
                                             }
 
-                                            fetch('eslint', (error, version) => {
+                                            fetch('version', (error, version) => {
                                                 if (error) {
                                                     console.error(error)
                                                 } else {
-                                                    console.log('Loaded ESLint Version ' + version)
+                                                    console.log('Loaded Package Version Detector Version ' + version)
                                                 }
 
-                                                fetch('eslint-plugin-react', (error, version) => {
+                                                fetch('eslint', (error, version) => {
                                                     if (error) {
                                                         console.error(error)
                                                     } else {
-                                                        console.log('Loaded ESLint Plugin React Version ' + version)
+                                                        console.log('Loaded ESLint Version ' + version)
                                                     }
 
-
-                                                    fetch('images-scraper', (error, version) => {
+                                                    fetch('eslint-plugin-react', (error, version) => {
                                                         if (error) {
                                                             console.error(error)
                                                         } else {
-                                                            console.log('Loaded Images Scraper Version ' + version)
+                                                            console.log('Loaded ESLint Plugin React Version ' + version)
                                                         }
 
-                                                        fetch('node', (error, version) => {
+
+                                                        fetch('images-scraper', (error, version) => {
                                                             if (error) {
                                                                 console.error(error)
                                                             } else {
-                                                                console.log('Loaded Node Version ' + version)
+                                                                console.log('Loaded Images Scraper Version ' + version)
                                                             }
 
-                                                            fetch('node-fetch', (error, version) => {
+                                                            fetch('node', (error, version) => {
                                                                 if (error) {
                                                                     console.error(error)
                                                                 } else {
-                                                                    console.log('Loaded Node Fetch Version ' + version)
+                                                                    console.log('Loaded Node Version ' + version)
                                                                 }
 
-                                                                fetch('node-pre-gyp', (error, version) => {
+                                                                fetch('node-fetch', (error, version) => {
                                                                     if (error) {
                                                                         console.error(error)
                                                                     } else {
-                                                                        console.log('Loaded Node Pre GYP Version ' + version)
+                                                                        console.log('Loaded Node Fetch Version ' + version)
                                                                     }
 
-                                                                    fetch('npm', (error, version) => {
+                                                                    fetch('node-pre-gyp', (error, version) => {
                                                                         if (error) {
                                                                             console.error(error)
                                                                         } else {
-                                                                            console.log('Loaded NPM Version ' + version)
+                                                                            console.log('Loaded Node Pre GYP Version ' + version)
                                                                         }
 
-                                                                        fetch('python', (error, version) => {
+                                                                        fetch('npm', (error, version) => {
                                                                             if (error) {
                                                                                 console.error(error)
                                                                             } else {
-                                                                                console.log('Loaded Python Version ' + version)
+                                                                                console.log('Loaded NPM Version ' + version)
                                                                             }
 
-                                                                            fetch('minecraft-server-util', (error, version) => {
+                                                                            fetch('python', (error, version) => {
                                                                                 if (error) {
                                                                                     console.error(error)
                                                                                 } else {
-                                                                                    console.log('Loaded Minecraft Server Util Version ' + version)
+                                                                                    console.log('Loaded Python Version ' + version)
                                                                                 }
-                                                                                console.log('\n===============================================================================\n')
-                                                                                client.login(Token)
+
+                                                                                fetch('minecraft-server-util', (error, version) => {
+                                                                                    if (error) {
+                                                                                        console.error(error)
+                                                                                    } else {
+                                                                                        console.log('Loaded Minecraft Server Util Version ' + version)
+                                                                                    }
+                                                                                    console.log('\n===============================================================================\n')
+                                                                                    client.login(Token)
+                                                                                })
                                                                             })
                                                                         })
                                                                     })
