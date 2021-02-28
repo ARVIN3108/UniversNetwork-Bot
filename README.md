@@ -14,6 +14,9 @@
 - `.vote` - To Visit This Vote Server Link
 - `.ping` - To Measure Ping From Bots And API
 - `.search` - To Search For An Image On Google
+- `.minecraft` | `.mc` - To View Info About Minecraft Servers
+- `.avatar` - To See The Avatar
+- `.anime` - To Find Info About Anime
 - `.info` - To View Information From Servers or Bots
 
 ## Admin Commands
