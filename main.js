@@ -538,8 +538,15 @@ distube.on("playSong", async (message, queue, song) => {
     })
 
     .on("error", (message, e) => {
-        console.error(e);
-        message.channel.send("An error encountered: " + e);
+        const ch = client.channels.cache.get(message.channel.id),
+            BotOwner = client.users.cache.get('792994169659981846'),
+            webhooks = await ch.fetchWebhooks(),
+            wh = webhooks.first();
+        BotOwner.send(e, { code: 'js' });
+        wh.send(':x: **Error Terdeteksi! Melaporkan Error Ke <@700166055326384179>**', {
+            username: 'UniversNetwork Song Player',
+            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+        });
     })
 
     .on('empty', async message => {
