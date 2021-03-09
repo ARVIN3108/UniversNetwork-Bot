@@ -382,6 +382,10 @@ client.once('ready', () => {
             client.commands.get('avatar').execute(message, args, MessageEmbed, Icon, Prefix);
         } else if (cmd === 'anime') {
             client.commands.get('anime').execute(message, args, wh, MessageEmbed, Prefix, Icon)
+        } else if (cmd === 'terminal') {
+            client.commands.get('terminal').execute(message, args)
+        } else if (cmd === 'eval') {
+            client.commands.get('eval').execute(message, args, cmd, client, MessageEmbed, Prefix, Icon, wh, mongoose, distube)
         }
         // } else if (cmd === 'canvas') {
         //     client.commands.get('canvas').execute(message, MessageAttachment);
@@ -537,7 +541,7 @@ distube.on("playSong", async (message, queue, song) => {
         });
     })
 
-    .on("error", (message, e) => {
+    .on("error", async (message, e) => {
         const ch = client.channels.cache.get(message.channel.id),
             BotOwner = client.users.cache.get('792994169659981846'),
             webhooks = await ch.fetchWebhooks(),
