@@ -3,13 +3,17 @@ module.exports = {
     description: 'To loop song',
     async execute(message, args, distube, wh, Prefix, MessageEmbed, Icon) {
         message.delete()
-        let queue = await distube.getQueue(message)
+        let queue = await distube.getQueue(message),
+            options = {
+                username: 'UniversNetwork Song Player',
+                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+            }
         if (queue) {
             let mode = distube.setRepeatMode(message, parseInt(args[0]));
             mode = mode ? mode == 2 ? "Repeat Semua Lagu" : "Repeat Lagu Ini" : "Mati";
             wh.send({
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+                username: options.username,
+                avatarURL: options.avatarURL,
                 embeds: [new MessageEmbed()
                     .setTitle('**Prefix:** `' + Prefix + '`')
                     .setColor('#02C2FF')
@@ -19,10 +23,7 @@ module.exports = {
                     .setFooter('Made By ARVIN3108 ID', Icon)]
             })
         } else if (!queue) {
-            wh.send(':x: **Bot tidak sedang memutar lagu!**', {
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-            })
+            wh.send(':x: **Bot tidak sedang memutar lagu!**', options)
         }
     }
 }

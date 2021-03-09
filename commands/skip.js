@@ -3,12 +3,16 @@ module.exports = {
     description: 'To skip song',
     async execute(message, distube, wh, Prefix, MessageEmbed, Icon) {
         message.delete()
-        let queue = await distube.getQueue(message)
+        let queue = await distube.getQueue(message),
+            options = {
+                username: 'UniversNetwork Song Player',
+                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+            };
 
         if (queue) {
             distube.skip(message).then(wh.send({
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png',
+                username: options.username,
+                avatarURL: options.avatarURL,
                 embeds: [new MessageEmbed()
                     .setTitle('**Prefix:** `' + Prefix + '`')
                     .setColor('#FBFF00')
@@ -18,11 +22,7 @@ module.exports = {
                     .setFooter('Made By ARVIN3108 ID', Icon)]
             }))
         } else if (!queue) {
-            wh.send(':x: **Bot tidak sedang memutar lagu!**', {
-                username: 'UniversNetwork Song Player',
-                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-            })
+            wh.send(':x: **Bot tidak sedang memutar lagu!**', options)
         }
-
     }
 }

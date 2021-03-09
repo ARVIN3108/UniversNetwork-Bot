@@ -3,7 +3,7 @@ module.exports = {
     description: 'To Calculate Bot & API ping',
     execute(message, client, MessageEmbed, Prefix, Icon) {
         message.delete()
-        message.channel.send(':hourglass: **Menghitung Ping Dalam 5 Detik...**').then(resultMessage => {
+        message.channel.send(':hourglass: **Menghitung Ping Dalam 3 Detik...**').then(resultMessage => {
             const ping = resultMessage.createdTimestamp - message.createdTimestamp
 
             setTimeout(function () {
@@ -16,7 +16,7 @@ module.exports = {
                     .addField('🌐 API Latency', client.ws.ping, true)
                     .setFooter('Made By ARVIN3108 ID', Icon)
                 resultMessage.edit('', embed)
-            }, 5000)
+            }, 3000)
         })
     }
 }

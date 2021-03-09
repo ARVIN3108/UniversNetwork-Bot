@@ -6,23 +6,15 @@ module.exports = {
     async execute(message, args, distube, wh) {
         message.delete()
         const voiceChannel = message.member.voice.channel,
-            music = args.join(" ")
-
-        if (!music) return wh.send(':exclamation: **Kamu perlu menyertakan nama atau link video!**', {
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        })
-
-        if (!voiceChannel) return wh.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**', {
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        })
-
-        distube.play(message, music).then(wh.send(':mag_right: **Mencari** `' + music + '`', {
-            username: 'UniversNetwork Song Player',
-            avatarURL: 'https://i.imgur.com/pBmA5S6.png'
-        }))
-
+            music = args.join(" "),
+            options = {
+                username: 'UniversNetwork Song Player',
+                avatarURL: 'https://i.imgur.com/pBmA5S6.png'
+            }
+        if (!music) return wh.send(':exclamation: **Kamu perlu menyertakan nama atau link video!**', options)
+        if (!voiceChannel) return wh.send(':exclamation: **Kamu perlu berada di voice channel sebelum memutar lagu!**', options)
+        distube.play(message, music).then(wh.send(':mag_right: **Mencari** `' + music + '`', options))
+        
         // const permissions = voiceChannel.permissionsFor(message.client.user);
         // if (!permissions.has('CONNECT')) return message.delete().then(message.channel.send(':x: **Bot tidak punya izin untuk terhubung ke voice channel**'))
         // if (!permissions.has('SPEAK')) return message.delete().then(message.channel.send(':x: **Bot tidak punya izin untuk memutar lagu!**'))
